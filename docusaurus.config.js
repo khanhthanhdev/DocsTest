@@ -88,7 +88,7 @@ const config = {
             label: "Software",
           },
           {
-            href: "https://github.com/MrinallU/FTC-Tech-Toolbox",
+            href: "https://github.com/khanhthanhdev/DocsTest",
             label: "GitHub",
             position: "right",
           },

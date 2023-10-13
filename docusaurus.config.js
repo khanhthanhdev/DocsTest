@@ -13,7 +13,7 @@ const config = {
   favicon: "img/favicon.png",
 
   // Set the production url of your site here
-  url: "https://ftc-tech-toolbox.vercel.app/",
+  url: "https://docs-test-delta.vercel.app/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -73,7 +73,7 @@ const config = {
           hideable: true,
         },
       },
-      image: "img/3C66A2BC-AA1E-4DF1-A01C-1009AC2F63F3.jpeg",
+      image: "img/teamlogo.jpg",
       navbar: {
         title: "FGC Team Vietnam",
         logo: {

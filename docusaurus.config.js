@@ -8,8 +8,8 @@ const katex = require("rehype-katex");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "FTC VN Docs",
-  tagline: "Authors: FIRST Global Team Vietnam",
+  title: "FTC Docs",
+  tagline: "Authors: Khanhthanhdev",
   favicon: "img/favicon.png",
 
   // Set the production url of your site here
@@ -20,8 +20,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "FGC Team Vietnam", // Usually your GitHub org/user name.
-  projectName: "FGC Team Vietnam", // Usually your repo name.
+  organizationName: "Khanhthanhdev", // Usually your GitHub org/user name.
+  projectName: "FTC Docs", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -75,7 +75,7 @@ const config = {
       },
       image: "img/teamlogo.jpg",
       navbar: {
-        title: "FGC Team Vietnam",
+        title: "Khanhthanhdev",
         logo: {
           alt: "My Site Logo",
           src: "img/favicon.png",

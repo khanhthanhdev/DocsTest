@@ -104,19 +104,19 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Community',
+            title: 'Team Vietnam - FIRST Global',
             items: [
               {
-                label: 'YouTube',
-                href: 'https://youtube.com/calebthevideomaker2',
+                label: 'Team Vietnam - FIRST Global',
+                href: 'https://www.facebook.com/TeamVietnamFGC ',
               },
               {
-                label: 'Instagram',
-                href: 'https://instagram.com/calebcurry',
+                label: 'Website',
+                href: 'https://firstglobalteamvietnam.weebly.com/',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/calebcurry',
+                label: 'Contact us',
+                href: 'https://firstglobalteamvietnam.weebly.com/contact.html',
               },
             ],
           },

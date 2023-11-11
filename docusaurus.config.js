@@ -9,18 +9,18 @@ const katex = require("rehype-katex");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "FTC Docs",
-  tagline: "Authors: Khanhthanhdev",
+  tagline: "Authors: Our comminity",
   favicon: "img/favicon.png",
 
   // Set the production url of your site here
-  url: "https://docs-test-delta.vercel.app/",
+  url: "https://ftcdocs.vercel.app/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "Khanhthanhdev", // Usually your GitHub org/user name.
+  organizationName: "Our community", // Usually your GitHub org/user name.
   projectName: "FTC Docs", // Usually your repo name.
 
   onBrokenLinks: "throw",
@@ -31,7 +31,15 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "vi"],
+    localeConfigs: {
+      en: {
+        label: "English"
+      },
+      vi: {
+        label: "Tiếng Việt"
+      }
+    }
   },
 
   presets: [
@@ -73,11 +81,11 @@ const config = {
           hideable: true,
         },
       },
-      image: "img/teamlogo.jpg",
+      image: "#",
       navbar: {
-        title: "Khanhthanhdev",
+        title: "Main",
         logo: {
-          alt: "My Site Logo",
+          alt: "",
           src: "img/favicon.png",
         },
         items: [
@@ -85,14 +93,59 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Software",
+            label: "Documentation",
           },
+          // { to: '/vi-docs', label: 'VN version', position: 'left',},
           {
             href: "https://github.com/khanhthanhdev/DocsTest",
             label: "GitHub",
             position: "right",
           },
+          {
+            type: "localeDropdown",
+            position: "right",
+          }
         ],
+      },
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: 'Team Vietnam - FIRST Global',
+            items: [
+              {
+                label: 'Facebook',
+                href: 'https://www.facebook.com/TeamVietnamFGC ',
+              },
+              {
+                label: 'Website',
+                href: 'https://firstglobalteamvietnam.weebly.com/',
+              },
+              {
+                label: 'Contact us',
+                href: 'https://firstglobalteamvietnam.weebly.com/contact.html',
+              },
+            ],
+          },
+          {
+            title: 'Vietnam STEAM Union',
+            items: [
+              {
+                label: 'Facebook',
+                href: 'https://www.facebook.com/VietNamSTEAMUnion',
+              },
+              {
+                label: 'Website',
+                href: 'https://vsteam.edu.vn/',
+              },
+              {
+                label: 'Our Community',
+                href: 'https://firstglobalteamvietnam.weebly.com/vietnam-steam-union.html',
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} Our organization`,
       },
       prism: {
         theme: lightCodeTheme,

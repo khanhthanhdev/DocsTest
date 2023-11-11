@@ -87,7 +87,7 @@ const config = {
             position: "left",
             label: "EN Version",
           },
-          { to: '/vi-docs', label: 'VN version', position: 'left',},
+          // { to: '/vi-docs', label: 'VN version', position: 'left',},
           {
             href: "https://github.com/khanhthanhdev/DocsTest",
             label: "GitHub",

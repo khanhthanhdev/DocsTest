@@ -21,17 +21,6 @@ const sidebars = {
     },
   ],
 
-  // But you can create a sidebar manually
-
-  // tutorialSidebar: [
-  //   'intro',
-  //   'hello',
-  //   {
-  //     type: 'category',
-  //     label: 'Tutorial',
-  //     items: ['tutorial-basics/create-a-document'],
-  //   },
-  // ],
 
 };
 

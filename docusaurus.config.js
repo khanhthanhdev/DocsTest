@@ -30,8 +30,16 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "vi",
-    locales: ["vi"],
+    defaultLocale: "en",
+    locales: ["en", "vi"],
+    localeConfigs: {
+      en: {
+        label: "English"
+      },
+      vi: {
+        label: "Tiếng Việt"
+      }
+    }
   },
 
   presets: [
@@ -75,7 +83,7 @@ const config = {
       },
       image: "#",
       navbar: {
-        title: "Khanhthanhdev",
+        title: "Main",
         logo: {
           alt: "",
           src: "img/favicon.png",
@@ -85,7 +93,7 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "EN Version",
+            label: "Documentation",
           },
           // { to: '/vi-docs', label: 'VN version', position: 'left',},
           {
@@ -93,6 +101,10 @@ const config = {
             label: "GitHub",
             position: "right",
           },
+          {
+            type: "localeDropdown",
+            position: "right",
+          }
         ],
       },
       footer: {

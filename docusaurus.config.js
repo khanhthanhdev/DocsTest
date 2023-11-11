@@ -13,7 +13,7 @@ const config = {
   favicon: "img/favicon.png",
 
   // Set the production url of your site here
-  url: "https://docs-test-delta.vercel.app/",
+  url: "https://ftcdocs.vercel.app/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -73,11 +73,11 @@ const config = {
           hideable: true,
         },
       },
-      image: "img/teamlogo.jpg",
+      image: "#",
       navbar: {
         title: "Khanhthanhdev",
         logo: {
-          alt: "My Site Logo",
+          alt: "",
           src: "img/favicon.png",
         },
         items: [
@@ -85,7 +85,13 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Software",
+            label: "EN Version",
+          },
+          {
+            type: "docSidebar",
+            sidebarId: "tutorialSidebar",
+            position: "left",
+            label: "VN Version",
           },
           {
             href: "https://github.com/khanhthanhdev/DocsTest",
@@ -93,6 +99,46 @@ const config = {
             position: "right",
           },
         ],
+      },
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'YouTube',
+                href: 'https://youtube.com/calebthevideomaker2',
+              },
+              {
+                label: 'Instagram',
+                href: 'https://instagram.com/calebcurry',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/calebcurry',
+              },
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'YouTube',
+                href: 'https://youtube.com/calebthevideomaker2',
+              },
+              {
+                label: 'Instagram',
+                href: 'https://instagram.com/calebcurry',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/calebcurry',
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} Our organization`,
       },
       prism: {
         theme: lightCodeTheme,

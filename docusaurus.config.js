@@ -9,7 +9,7 @@ const katex = require("rehype-katex");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "FTC Docs",
-  tagline: "Authors: Khanhthanhdev",
+  tagline: "Authors: Our comminity",
   favicon: "img/favicon.png",
 
   // Set the production url of your site here
@@ -20,7 +20,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "Khanhthanhdev", // Usually your GitHub org/user name.
+  organizationName: "Our community", // Usually your GitHub org/user name.
   projectName: "FTC Docs", // Usually your repo name.
 
   onBrokenLinks: "throw",
@@ -30,8 +30,8 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: "vi",
+    locales: ["vi"],
   },
 
   presets: [
@@ -87,12 +87,7 @@ const config = {
             position: "left",
             label: "EN Version",
           },
-          {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
-            position: "left",
-            label: "VN Version",
-          },
+          { to: '/vi-docs', label: 'VN version', position: 'left',},
           {
             href: "https://github.com/khanhthanhdev/DocsTest",
             label: "GitHub",
@@ -107,7 +102,7 @@ const config = {
             title: 'Team Vietnam - FIRST Global',
             items: [
               {
-                label: 'Team Vietnam - FIRST Global',
+                label: 'Facebook',
                 href: 'https://www.facebook.com/TeamVietnamFGC ',
               },
               {
@@ -121,19 +116,19 @@ const config = {
             ],
           },
           {
-            title: 'Community',
+            title: 'Vietnam STEAM Union',
             items: [
               {
-                label: 'YouTube',
-                href: 'https://youtube.com/calebthevideomaker2',
+                label: 'Facebook',
+                href: 'https://www.facebook.com/VietNamSTEAMUnion',
               },
               {
-                label: 'Instagram',
-                href: 'https://instagram.com/calebcurry',
+                label: 'Website',
+                href: 'https://vsteam.edu.vn/',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/calebcurry',
+                label: 'Our Community',
+                href: 'https://firstglobalteamvietnam.weebly.com/vietnam-steam-union.html',
               },
             ],
           },

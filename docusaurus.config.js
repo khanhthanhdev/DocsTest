@@ -109,42 +109,42 @@ const config = {
       },
       footer: {
         style: 'dark',
-        links: [
-          {
-            title: 'Team Vietnam - FIRST Global',
-            items: [
-              {
-                label: 'Facebook',
-                href: 'https://www.facebook.com/TeamVietnamFGC ',
-              },
-              {
-                label: 'Website',
-                href: 'https://firstglobalteamvietnam.weebly.com/',
-              },
-              {
-                label: 'Contact us',
-                href: 'https://firstglobalteamvietnam.weebly.com/contact.html',
-              },
-            ],
-          },
-          {
-            title: 'Vietnam STEAM Union',
-            items: [
-              {
-                label: 'Facebook',
-                href: 'https://www.facebook.com/VietNamSTEAMUnion',
-              },
-              {
-                label: 'Website',
-                href: 'https://vsteam.edu.vn/',
-              },
-              {
-                label: 'Our Community',
-                href: 'https://firstglobalteamvietnam.weebly.com/vietnam-steam-union.html',
-              },
-            ],
-          },
-        ],
+        // links: [
+        //   {
+        //     title: 'Team Vietnam - FIRST Global',
+        //     items: [
+        //       {
+        //         label: 'Facebook',
+        //         href: 'https://www.facebook.com/TeamVietnamFGC ',
+        //       },
+        //       {
+        //         label: 'Website',
+        //         href: 'https://firstglobalteamvietnam.weebly.com/',
+        //       },
+        //       {
+        //         label: 'Contact us',
+        //         href: 'https://firstglobalteamvietnam.weebly.com/contact.html',
+        //       },
+        //     ],
+        //   },
+        //   {
+        //     title: 'Vietnam STEAM Union',
+        //     items: [
+        //       {
+        //         label: 'Facebook',
+        //         href: 'https://www.facebook.com/VietNamSTEAMUnion',
+        //       },
+        //       {
+        //         label: 'Website',
+        //         href: 'https://vsteam.edu.vn/',
+        //       },
+        //       {
+        //         label: 'Our Community',
+        //         href: 'https://firstglobalteamvietnam.weebly.com/vietnam-steam-union.html',
+        //       },
+        //     ],
+        //   },
+        // ],
         copyright: `Copyright © ${new Date().getFullYear()} Our organization`,
       },
       prism: {

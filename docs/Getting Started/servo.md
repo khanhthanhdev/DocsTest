@@ -22,7 +22,7 @@ CR Servos, or Continuous Rotation Servos are a mode for servos where the servo c
 CR Servos have a slightly different initialization
 ```java 
 CRservo wheel;
-wheel = hardwareMap.get(CRServo.class, "wheel);
+wheel = hardwareMap.get(CRServo.class, "wheel");
 ```
 ## Setting Servo Position
 The `setPosition` method takes in a 0-1 double value and sets the servo to a specific position given to it. It is used for the normal non CR servos.

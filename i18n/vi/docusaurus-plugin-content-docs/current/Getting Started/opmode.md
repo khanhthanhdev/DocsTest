@@ -1,94 +1,95 @@
 ---
 sidebar_position: 3
 ---
-# Creating an OpMode
+# Tạo một OpMode
 :::note Resources
 
-* [Our tutorial on opmode creation](https://www.youtube.com/watch?v=UmsXnZxoDmI)
+* [Hướng dẫn tạo OpMide](https://www.youtube.com/watch?v=UmsXnZxoDmI)
 :::
 
+Trong FTC, code được viết trong OpMode, bạn sử dụng OpMode cho cả TeleOp và Autonomous. Bạn sẽ tìm hiểu một số khái niệm cơ bản và cài đặt OpMode
 
-In FTC your code is written in op-modes, you use op modes for both Tele-op and Autonomous. You will learn the basics in setting up your first op-mode.
+## 2 loại OpMode
+Có 2 loại OpMode, là OpMode và LinearOpMode, cả 2 có 1 chút khác biệt, nhưng đều có cùng mục đích.
 
-## Two Types
-There are two types of op-modes, the OpMode and the LinearOpMode, both of them are programmed a bit differently, but ultimately achieve the same purpose. Our video on OpMode Creation goes in depth into both. 
 
 ## OpMode
-An OpMode class is composed of five different methods that you can write your code inside. The code in the five different methods runs in a different time/way. 
+lớp OpMode bao gồm 5 phương thức khác nhau mà bạn có thể viết code trong đó. Code sẽ được chạy theo 5 cách khác nhau.
 
-* `init()` - Code inside this method will run once after the program is initialized.
-* `init_loop()` - Code inside this method will loop repeatedly while the program is initialized.
-* `start()` - Code inside this method will run once after the program is started.
-* `loop()` - Code inside this method will run repeatedly for the duration of the program. 
-* `stop()` - Code inside this method will run once after the program is stopped.
+* `init()` - Code sẽ chạy 1 lần khi chương trình được khởi tạo.
+* `init_loop()` - Code sẽ được chạy lặp lại trong suốt quá trình ngay khi chương trình được khởi tạo.
+* `start()` - Code sẽ được chạy ngay khi chương trình được bắt đầu chạy.
+* `loop()` - Code sẽ được chạy lặp lại trong suốt quá trình. 
+* `stop()` - Code sẽ được chạy ngay sau khi chương trình được dừng.
 
-The whole setup for the OpMode class with all five methods will look like this.
+Khơi tạo các phương thức sẽ có dạng tương tự như sau.
 
 ```java
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 @TeleOp(name = "NonLinearTeleop")
-public class FirstTeleop extends OpMode {  //Make sure the class extends OpMode
-    @Override             //Override is used for each loop
+public class FirstTeleop extends OpMode {  //Đảm bảo lớp này kế thừa OpMode
+    @Override             //Ghi đè cho mỗi phương thức
     public void init() {
-        //Happens once on init
+        //Chạy 1 lần khi khởi tạo
     }
 
     @Override
     public void init_loop() {
-        //Happens repeatedly during init
+        //Lặp lại trong quá trình khởi tạo
     }
 
     @Override
     public void start() {
-        //Happens once after program starts
+        //Chạy sau khi chương trình bắt đầu
     }
 
     @Override
     public void loop() {
-        //Happens repeatedly during the program
+        //Chạy lặp lại trong quá trình
     }
 
     @Override
     public void stop() {
-        //Happens once after stop
+        //Chạy 1 lần sau khi dừng
     }
 }
 
 ```
 
 ## LinearOpMode
-The other op-mode class is called LinearOpMode. It uses some different functions and has the code organized differently.
-## Important LinearOpMode Methods
-* `waitForStart()` - Waits for Program to be started after initialization.
-* `opModeIsActive()` - Checks to see if the op-mode has been started, returns True or False.
-* `runOpMode()` - Contains all op-mode code, runs once after the start of the OpMode.
-## Tele-op Linear OpMode
+Một opmode khác là LinearOpMode. Nó có một số hàm và cấu trúc code khác
+## Một số phương thức quan trọng trong LinearOpMode
+* `waitForStart()` - Đợi cho chương trình chạy sau khi khởi tạo.
+* `opModeIsActive()` - Kiểm tra OpMode có chạy hay không, trả về True/False.
+* `runOpMode()` - Bao gồm tất cả code, chạy 1 lần sau khi bắt đầu chương trình.
+## Tele-op LinearOpMode
 ```java 
 @TeleOp(name = "LinearTeleop")
 public class LinearTeleop extends LinearOpMode{
     @Override
     public void runOpMode() throws InterruptedException {
-        //Initialization Code Goes Here
+        //Khởi tạo tại đây
         waitForStart();
-        while(opModeIsActive()){ //while loop for when program is active
-            //Code repeated during teleop goes here
-            //Analogous to loop() method in OpMode
+        while(opModeIsActive()){ //Vòng lặp while khi OpMode chạy
+            //Code được chạy lặp lại
+            //Tương tự như loop() trong OpMode
         }
 
     }
 }
 ```
 ## LinearOpMode Autonomous
-The autonomous for LinearOpMode is very similar to the Teleop setup, however the while(opModeIsActive) is not necessary for most code as autonomous happens once. The while(opModeIsActive) can still be used for things such as constant telemetry readings during the autonomous.
+Code tự động trong LinearOpMode khá giống với cách thiết lập TeleOp, tuy nhiêu while(opModeIsActive) là không cần thiết cho hầu hết các trường hợp. while(opModeIsActive) vẫn có thể sử dụng cho một số tác vụ như đọc giá trị telemetry 
+
 ```java 
 @Autonomous(name = "LinearAuto")
 public class LinearAuto extends LinearOpMode{
     @Override
     public void runOpMode() throws InterruptedException {
-        //Initialization Code Goes Here
+        //Khởi tạo
         waitForStart();
-        //Auto Code Goes Here
+        //Code auto
 
     }
 }

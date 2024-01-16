@@ -1,26 +1,24 @@
 ---
 sidebar_position: 2
 ---
-# Choosing a IDE 
+# Chọn 1 IDE 
 :::note Resources
 
-* [Our tutorial on downloading Android Studio](https://www.youtube.com/watch?v=ig9YUI4wu6c&t=50s)
-* [Intro to FTC Programming](https://www.youtube.com/watch?v=CdcpNZzekb0&t=438s) - Watch before proceeding. Lesson on the fundamental of FTC programming (opModes, running code, motors, servos)
+* [Hướng dẫn tải Android Studio](https://www.youtube.com/watch?v=ig9YUI4wu6c&t=50s)
+* [Giới thiệu về FTC Programming](https://www.youtube.com/watch?v=CdcpNZzekb0&t=438s) - Nền tảng về FTC programming (opModes, running code, motors, servos)
 
 :::
 
 
-## What are my options?
+## Các lựa chọn để bắt đầu
 
-There are three options for starting off programming in FTC. You can use Block Programming, OnBot Java, or Android Studio
+Có 3 lựa chọn để bạn bắt đầu lập trình cho FTC. Bạn có thể sử dụng Block, Onbot Java, hoặc Android Studio
 
-## Block Programming
-
-Block Programming is great for first timers who are just getting into FTC Coding. Not much prior knowledge is needed to start, and is likely the best option if you are new to FTC and don't have a programming background. The setup is also very easy. However, there are some drawbacks, the biggest problem is the fact that it is not possible to import external libraries into blocks such as OpenCv or Roadrunner, which can greatly improve your team's software.
+## Block 
+Block là một lựa chọn tốt cho những người mới tham gia FTC. Không cần quá nhiều kiến thức để bắt đầu, là lựa chọn tốt nhất nếu bạn chưa có nền tảng về lập trình. Việc cài đặt và sử dụng rất đơn giản. Tuy nhiên, có một số hạn chế như không thể sử dụng thư viện bên ngoài như OpenCV, Roadrunner, nó sẽ rất khó để làm các chức năng nâng cao.
 
 ## OnBot Java
+OnBot Java là công cụ code bạn có thể truy cập trực tiếp trên web, dùng để nạp code Java cho Robot. Nó cài đặt dễ dàng mà không cần tải xuống. Bạn cần kết nối wifi với control hub để nạp code. Tuy nhiên, rất khó để sử dụng thư viện ngoài.
 
-OnBot Java is a code editor that can be accessed on the web, that uses JAVA code to download code to the robot. It is still very easy to setup as it requires no additional downloads, and downloads are done by connecting to the robot's Wi-Fi network. However, additional libraries are very hard to use in OnBot Java.
-
-## Android Studio (Recommended)
-Android Studio is an IDE in which you use the JAVA programming language to write code and download it to the Control Hub or Phone. If you have background knowledge of JAVA, or a little experience in programming, this is the best option as it allows for the most freedom with your code. You can use many external libraries and tools as well as having the ability to download via USB or wirelessly using ADB to the control hub or a phone.
+## Android Studio (Nên dùng)
+Android Studio là một IDE cho ngôn ngữ Java, viết code và nạp cho Control Hub. Nếu bạn có kiến thức nền tảng về Java, một chút kinh nghiêmn lập trình. Đây là lựa chọn tốt nhất vì nó cho phép bạn tùy chỉnh rất nhiều. Bạn có thể sử dụng rất nhiều các thư viện, nạp code cho Control Hub bằng dây USB hoặc qua Wifi.

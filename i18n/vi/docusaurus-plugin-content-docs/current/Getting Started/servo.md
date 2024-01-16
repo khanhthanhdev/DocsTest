@@ -4,45 +4,43 @@ sidebar_position: 5
  
 # Servos
 
+Thông thường trong FTC, Servo được sử dụng khi không cần nhiều năng lượng để di chuyển cơ chế. Servo được sử dụng để di chuyển những thứ nhỏ hơn hoặc để quay liên tục các cơ chế nhất định. Nó dẫn đến chuyển động tốt hơn khi nó có thể di chuyển giữa các vị trí từ 0-1.
+## Khởi tạo Servo
 
-
-Usually in FTC, Servos are used where not as much power is required to move mechanism. Servos are used for movement of smaller things, or for continuous rotation of certain mechanisms. They result in more fine movement as they can move between positions from 0-1.
-## Servo Initialization
-
-Just like for Motors, servo initialization references the hardwareMap object to instantiate the Servo. The main difference in initialization of a servo is the usage of the Servo object when creating the servo variable as well as using Servo.class in the hardwareMap configuration.
+Cũng giống như đối với Motors, khởi tạo servo tham chiếu đến đối tượng hardwareMap để khởi tạo Servo. Sự khác biệt chính trong việc khởi tạo servo là việc sử dụng đối tượng Servo khi tạo biến servo cũng như sử dụng Servo.class trong cấu hình hardwareMap.
 ```java
 Servo claw;
 claw = hardwareMap.get(Servo.class, "claw");
 ```
 ## CR Servos
 
-CR Servos, or Continuous Rotation Servos are a mode for servos where the servo continuously rotates, similar to the movement of a motor. This can be used in many situations such as the spinning of a small wheel. For example, many teams used CR Servos for the spinning of the carousel wheel in Freight Frenzy.
+CR Servos, hay Continuous Rotation Servos là một chế độ dành cho servo trong đó servo liên tục quay, tương tự như chuyển động của động cơ. Điều này có thể được sử dụng trong nhiều tình huống như quay bánh xe nhỏ. Ví dụ, nhiều đội đã sử dụng CR Servos để quay bánh xe băng chuyền trong Freight Frenzy.
 
-### CR Servo Initialization
-CR Servos have a slightly different initialization
+### Khởi tạo CR Servo
+CR Servos có một chút khác biệt khi khởi tạo
 ```java 
 CRservo wheel;
-wheel = hardwareMap.get(CRServo.class, "wheel);
+wheel = hardwareMap.get(CRServo.class, "wheel");
 ```
-## Setting Servo Position
-The `setPosition` method takes in a 0-1 double value and sets the servo to a specific position given to it. It is used for the normal non CR servos.
+## Đặt vị trí Servo
+Phương thức `setPosition` nhận giá trị kép 0-1 và đặt servo đến một vị trí cụ thể được cung cấp cho nó. Nó được sử dụng cho các servo không phải CR bình thường.
 ```java
 claw.setPosition(0.5);
 ```
-## Setting CR Servo Powers
-For, CR Servo usage, you must set it to a certain power. It is the setPower method, the line looks very similar to setting power to a motor. 
+## Đặt điện áp cho CR Servo
+Đối với, sử dụng CR Servo, bạn phải đặt nó ở một công suất nhất định. Đó là phương pháp setPower, trông rất giống với cài đặt công suất cho động cơ. 
 ```java 
 wheel.setPower(0.5);
 ```
 :::info
-To find more servo methods with descriptions of what they do, they can be found [here](https://ftctechnh.github.io/ftc_app/doc/javadoc/com/qualcomm/robotcore/hardware/Servo.html)
+Để tìm hiểu thêm các phương thức của Servo, bạn có thể đọc thêm [tại đây](https://ftctechnh.github.io/ftc_app/doc/javadoc/com/qualcomm/robotcore/hardware/Servo.html)
 :::
 
 :::caution
-The servo has a method called get position. However, due to the way the servo receives this data, it is not the actual current position of the servo. It is the postition that the servo is set to be going to. Therefore, there is not big usage for this method in your program. 
+Servo có một phương thức gọi là get position. Tuy nhiên, do cách servo nhận dữ liệu này, nó không phải là vị trí hiện tại thực tế của servo. Đó là vị trí mà servo được thiết lập để sẽ đến. Do đó, không có cách sử dụng lớn cho phương pháp này trong chương trình của bạn. 
 :::
 
-## Exercise
+## Bài tập
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -51,11 +49,11 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="Task">
 ```
-Create a new servo object and name it a claw. Crop it's range to set its new bounds to be between the original 0.2 and 0.8 value. Then, with its new bounds, set it to a position of 0.4;
+Tạo một đối tượng servo mới và đặt tên nó là "claw". Để phạm vi của nó để đặt giới hạn mới của nó nằm giữa giá trị 0,2 và 0,8 ban đầu. Sau đó, với các giới hạn mới của nó, đặt nó ở vị trí 0,4;
 
-Hint: Look at page with all servo methods.
+Gợi ý: Nhìn tất cả các phương pháp servo.
 
-Next, initialize a servo for a intake wheel you will spin to intake objects. Initialize the servo with the variable and configuration name of "intake". Then set it to run at 75% of its speed.
+Tiếp theo, khởi tạo một servo cho một bánh xe nạp bạn sẽ quay để nạp các đối tượng. Khởi tạo servo với biến và tên cấu hình là "intake". Sau đó đặt nó chạy ở 75% tốc độ của nó.
 ```mdx-code-block
 </TabItem>
 <TabItem value="Solution">

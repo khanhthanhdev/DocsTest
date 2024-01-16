@@ -1,41 +1,39 @@
 ---
 sidebar_position: 4
 ---
-# Motors and Encoders
+# Động cơ và bộ mã hóa
+Động cơ DC trong FTC được sử dụng cho các cơ cấu cơ khí lớn như drivebase, cánh tay robot, shooter bắn bóng. Rất quan trọng để học các sử dụng động cơ một cách hiệu quả.
 
-DC Motors in FTC are used for movement of large mechanisms and can be used for fast and continuous rotation, or precise movement for things like an arm. It is very important to learn how to efficiently program motors.
 
-## Motor Initialization
-
-The first step in using a motor is to initialize it as a variable in the code. This is done through the use of an object named **hardwareMap** that is used for easy initialization of FTC Objects.
+## Khởi tạo động cơ
+Bước đầu tiên trong việc sử dụng một động cơ là khởi tạo nó như một biến trong mã. Điều này được thực hiện thông qua việc sử dụng một đối tượng có tên **hardwareMap** được sử dụng để dễ dàng khởi tạo các đối tượng FTC.
 ```java 
 DcMotor driveMotor;       
 driveMotor = hardwareMap.get(DcMotor.class, "Drive Motor");  
 ```
-In this example, first the `driveMotor` variable is created through the use of the `DcMotor` object. Then the hardwareMap is used to initialize and name the motor, this should be the same name used in the configuration of the Motor on the phone.
-## DcMotor Setup Usage
+Trong ví dụ này, đầu tiên biến `driveMotor` được tạo thông qua việc sử dụng đối tượng `DcMotor`. Sau đó, hardwareMap được sử dụng để khởi tạo và đặt tên cho động cơ, đây phải là cùng tên được sử dụng trong cấu hình của động cơ trên Control hub.
 
-There are many methods that for the DcMotor that can be used before the motor is powered to change how it behaves when it runs.
+## Sử dụng động cơ
+Có nhiều phương thức điều khiển động cơ, điện áp đầu vào, ...
 
-## Set Direction
+## Chọn hướng
 
 ```java
 driveMotor.setDirection(DcMotor.Direction.Forward);
 driveMotor.setDirection(DcMotor.Direction.Reverse);
 ```
-`setDirection` is used to change the way a motor rotates when it is set to power. `setDirection` should be used on drive train motors to ensure that all motors are spinning the same direction when sent to an equal power.
+`setDirection` được sử dụng để thay đổi cách động cơ quay khi nó được đặt điện áp đầu vào. `setDirection` nên được sử dụng trên động cơ truyền động để đảm bảo rằng tất cả các động cơ đều quay cùng một hướng khi được gửi đến một công suất như nhau.
 
-## Motor Encoders
+## Bộ mã hóa động cơ
+Trong lĩnh vực robot FTC, động cơ được kết nối với bộ mã hóa với khả năng bổ sung: chúng có thể cho biết động cơ đã quay với tốc độ bao nhiều, và được bao nhiêu vòng. Hãy tưởng tượng bạn đang lái một chiếc xe điều khiển từ xa và bạn muốn nó di chuyển một khoảng cách cụ thể hoặc rẽ một góc cụ thể. Động cơ thông thường có thể đến gần, nhưng chúng không thể cung cấp cho bạn điều khiển chính xác. Mặt khác, động cơ mã hóa cung cấp độ chính xác.
 
-In the realm of FTC robotics, motors connected to an encoder serve as advanced motors with an extra ability: they can communicate to the robot how much they've rotated and at what speed. Imagine you're steering a remote-control car, and you want it to travel a particular distance or turn a specific angle. Regular motors might get close, but they can't give you exact control. Encoder motors, on the other hand, offer precision.
+Một bộ mã hóa thường được kết nối thông qua một dây đặc biệt được kết nối với động cơ. Thiết bị này theo dõi các vòng quay và mỗi vòng quay hoàn chỉnh được chia thành các phần nhỏ hơn gọi là ticks. Hãy nghĩ về một dấu tích như một dấu nhỏ trên thước đo lượng động cơ đã quay. Ví dụ, một động cơ có thể đo 100 ticks cho mỗi vòng quay. 
 
-An encoder is typically connected via a special wire that is connected to the motor. This device keeps track of rotations, and each complete rotation is divided into smaller parts called ticks. Think of a tick as a tiny mark on a ruler that measures how much the motor has turned. For instance, a motor may measure 100 ticks for every rotation of the motor shaft. 
+Các nhóm FTC khai thác sức mạnh của các động cơ mã hóa này để lập trình robot của họ với các chuyển động chính xác. Khi bánh xe của robot quay, bộ mã hóa sẽ đếm ticks. Vì vậy, nếu bánh xe của robot quay 100 ticks, robot biết nó đã di chuyển một khoảng cách cụ thể. Nó giống như robot đọc bản đồ nhỏ của riêng nó cho thấy chính xác vị trí của nó.
 
-FTC teams harness the power of these encoder motors to program their robots with accurate movements. When the robot's wheels turn, the encoders count the ticks. So, if the robot's wheel turns 100 ticks, the robot knows it has moved a specific distance. It's akin to the robot reading its own mini-map that shows exactly where it is.
+Mặt khác, vận tốc của động cơ cũng được bộ mã hóa đo thông qua số ticks mỗi giây mà động cơ đang di chuyển. 
 
-On the other hand, the motor's velocity is also measured by the encoder through the number of ticks per second the motor is traveling. 
-
-### Run Mode
+### Các chế độ chạy
 ```java 
 driveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 driveMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -44,32 +42,32 @@ driveMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 ```
 
 ### RUN WITHOUT ENCODER
-This mode causes a motor to not use the plugged in encoder values to do things like control its position or speed.
+Chế độ này khiến động cơ không sử dụng các giá trị bộ mã hóa đã cắm để thực hiện những việc như điều khiển vị trí hoặc tốc độ của nó.
 ### RUN USING ENCODER
-
-This causes the motor to use a motor encoder(if plugged in), to help control its position or speed. When a motor is set to `RUN_USING_ENCODER` it automatically uses the encoder to help keep the motor consistently running at any speed set to the motor. 
+Điều này làm cho động cơ sử dụng bộ mã hóa động cơ (nếu được cắm), để giúp kiểm soát vị trí hoặc tốc độ của nó. Khi động cơ được đặt thành `RUN_USING_ENCODER`, nó sẽ tự động sử dụng bộ mã hóa để giúp giữ cho động cơ chạy liên tục ở bất kỳ tốc độ nào được đặt cho động cơ. 
 
 ### STOP AND RESET ENCODER
-This will reset the encoder tick value the motor has to 0. It will ensure that the encoder ticks are consistent per each run, and causes the motor to work as expected each run. If using the encoder ticks as a measurement, `STOP_AND_RESET_ENCODER` should be used at the beginning of your code. 
+Thao tác này sẽ đặt lại giá trị đánh dấu của bộ mã hóa mà động cơ phải về 0. Nó sẽ đảm bảo rằng ticks của bộ mã hóa nhất quán cho mỗi lần chạy và làm cho động cơ hoạt động như mong đợi mỗi lần chạy. Nếu sử dụng ticks của bộ mã hóa làm phép đo, bạn nên sử dụng `STOP_AND_RESET_ENCODER` ở đầu mã của mình. 
 
 ### RUN TO POSITION
+Run To Position là một chế độ rất hữu ích cho động cơ. Nó cho phép một động cơ chạy đến một giá trị đánh dấu mục tiêu cụ thể được đặt và động cơ sẽ đi đến vị trí đó và giữ nó. Nó sử dụng một vòng điều khiển PID tích hợp để thực hiện điều này.
 
-Run To Position is a very useful mode for motors. It allows for a motor to run to a specific target tick value that is set, and the motor will go that position and hold it. It uses an in-built PID Control Loop to accomplish this.
 
 :::info 
 
-When using RUN_TO_POSITION, the power should not ever be negated as the motor will go towards whatever direction the tick count is. If the motor needs to go in the opposite direction, use a negative tick count
+Khi sử dụng RUN_TO_POSITION, công suất không bao giờ bị âm vì động cơ sẽ đi về bất kỳ hướng nào. Nếu động cơ cần đi theo hướng ngược lại, hãy sử dụng dấu âm.
 
 :::
 
-### Finding Motor Position
-When using encoders, there is a useful method that can be used to find the motors position in encoder ticks.
+### Xác định vị trí của động cơ
+Khi sử dụng bộ mã hóa, có một phương pháp hữu ích có thể được sử dụng để tìm vị trí động cơ trong ticks.
 ```java 
 int position;
 position = motor.getCurrentPosition();
 ```
-### Moving a Motor to a Position Using Encoders
-To move a motor to a target encoder position(given in ticks), we will first be introducing two more commands. `setTargetPosition()` takes in a tick value for the motor that becomes its target position. `setPower()` sets a [-1,1] value for the motor speed to run at. A power below 0 runs the motor in the opposite direction.  
+### Di chuyển động cơ đến vị trí bằng bộ mã hóa
+Để di chuyển động cơ đến vị trí bộ mã hóa mục tiêu (được đưa ra bằng ticks), trước tiên chúng tôi sẽ giới thiệu thêm hai lệnh. `setTargetPosition()` nhận giá trị tick cho động cơ trở thành vị trí mục tiêu của nó. `setPower()` đặt giá trị [-1,1] cho tốc độ động cơ chạy. Công suất dưới 0 chạy động cơ theo hướng ngược lại.  
+ 
 
 ```java 
 TARGET_TICK_VALUE = 600;      
@@ -77,27 +75,23 @@ driveMotor.setTargetPosition(TARGET_TICK_VALUE);    //Sets Target Tick Position
 driveMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION); 
 driveMotor.setPower(1);           //Sets Motor to go to position at 1 power.
 ```
-In the example the motor is set to run to a target position of 600 ticks, the amount of rotations this is will depend on the ticks per rotation of that specific motor. After setting the target position the motor is set to the `RUN_TO_POSITION` mode, then set to a power of 1, or full power, to run to its target position.
-
-:::info
-When using RUN_TO_POSITION, the power should not ever be negated as the motor will go towards whatever direction the tick count is. If the motor needs to go in the opposite direction, use a negative tick count.
-:::
+Trong ví dụ động cơ được đặt để chạy đến vị trí mục tiêu là 600 tick, số vòng quay này sẽ phụ thuộc vào số ticks trên mỗi vòng quay của động cơ cụ thể đó. Sau khi đặt vị trí mục tiêu, động cơ được đặt ở chế độ `RUN_TO_POSITION`, sau đó đặt thành công suất 1 hoặc toàn bộ công suất để chạy đến vị trí mục tiêu.
 
 :::info
 
-We recommend looking up the webpage of whatever motor you are using and finding the ticks per revolution, the value counted by the encoder per rotation. This can help you in terms of calculating how far you want to turn your mechanisms.
+Chúng tôi khuyên bạn nên tra cứu trang web của bất kỳ động cơ nào bạn đang sử dụng và tìm ticks trên mỗi vòng quay, giá trị được tính bởi bộ mã hóa trên mỗi vòng quay. Điều này có thể giúp bạn về mặt tính toán.
 :::
 
-## Velocity Control
-When setting the motor to `RUN_USING_ENCODER` mode, setting power to a motor causes it to move at a constant velocity rather than an actual power, this means that a motor connected to an encoder will be less resistant to battery fluctuations when compared to a motor that is not connected to an encoder. 
+## Kiểm soát vận tốc
+Khi đặt động cơ ở chế độ `RUN_USING_ENCODER`, đặt nguồn cho động cơ khiến nó di chuyển với vận tốc không đổi thay vì công suất thực tế, điều này có nghĩa là động cơ được kết nối với bộ mã hóa sẽ kém khả năng chống dao động pin hơn khi so sánh với động cơ không được kết nối với bộ mã hóa. 
 
-Alternatively, you can specify the exact ticks per second the motor should be spinning at:
+Ngoài ra, bạn có thể chỉ định ticks chính xác mỗi giây mà động cơ sẽ quay tại:
 ```java
 ((DcMotorEx)motor).setVelocity(ticksPerSecond); 
 ```
 
-## Motor Class Implementation
-Here is a convenient motor class that contains shortcuts to most of the methods listed above. 
+## Khởi tạo lớp động cơ
+Dưới đây là một lớp động cơ thuận tiện có chứa các phím tắt cho hầu hết các phương pháp được liệt kê ở trên.
 ```java 
 package org.firstinspires.ftc.teamcode.Utils;
 

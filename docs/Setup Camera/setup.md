@@ -11,19 +11,19 @@ BTC khuyến khích các đội làm tuần tự các bước trong #Thiết l�
 
 # Yêu cầu
 *   **Raspberry Pi Zero 2W**
-    ![Pi 2W](../assets/pi2w.png)
+*    ![Pi 2W](../assets/pi2w.png)
 *   **Raspberry Pi Camera Module V2**
-    ![Pi Camera](../assets/pi_cam.png)
+*    ![Pi Camera](../assets/pi_cam.png)
 *   **Thẻ nhớ microSD**: Ưu tiên sử dụng thẻ nhớ Sandisk Ultra SDHC (class 10) với dung lượng tối thiểu là 16GB.
-    ![SD Card](../assets/sd_card.png)
+*    ![SD Card](../assets/sd_card.png)
 *   **Cáp chuyển camera Raspberry Pi Zero**
-    ![Cap Camera](../assets/cap-mini-csi-pi-zero.png)
+*    ![Cap Camera](../assets/cap-mini-csi-pi-zero.png)
 *   **Pin 18650**
-   ![Pin](../assets/pin.png)
+*   ![Pin](../assets/pin.png)
 *   **Mạch hạ áp LM2596**: Khuyến nghị sử dụng mạch có màn hình hiển thị điện áp cho dễ sử dụng.
-    ![Mach Ha ap](../assets/ha_ap.png)
+* ![Mach Ha ap](../assets/ha_ap.png)
 *   **Cáp microUSB**: Yêu cầu cáp microUSB có khả năng truyền dữ liệu.
-    ![microUSB](../assets/cap.png)
+*    ![microUSB](../assets/cap.png)
 *   **Máy tính**: Một máy tính chạy Windows, macOS, hoặc Linux để tải Raspberry Pi Imager, ghi hệ điều hành lên thẻ nhớ để sử dụng cho Raspberry Pi và sử dụng để theo dõi hình ảnh camera. Để đạt hiệu quả tốt nhất, khuyến nghị sử dụng máy tính có cổng Ethernet.
 *   **Router không dây**: Bạn có thể sử dụng router nhà bạn đang sử dụng. Tuy nhiên để đạt hiệu năng tốt nhất chúng tôi khuyến nghị bạn sử dụng router không dây chuyên biệt sử dụng chuẩn N trở lên hay còn gọi là WiFi 4 trở lên (các router từ năm 2015 trở đi đều đáp ứng chuẩn này).
 * **[Hộp chứa camera](https://husteduvn-my.sharepoint.com/:u:/r/personal/huy_nq2417439_sis_hust_edu_vn/Documents/STEAM%20for%20Vietnam/CAD/FireBot/Camera%20Box/Ver%201/Ver%201.STEP?csf=1&web=1&e=k1KMQh)**: Hộp này sẽ chứa các linh kiện cần thiết để có thể dễ dàng gắn camera.

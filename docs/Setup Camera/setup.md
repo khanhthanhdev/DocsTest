@@ -6,24 +6,23 @@ sidebar_position: 1
 
 Hướng dẫn này sẽ giúp đội chơi có thể tự làm một module camera để làm quen trước sự kiện. 
 Lưu ý tại sự kiện chính thức các bạn sẽ sử dụng module của ban tổ chức, hướng dẫn này sẽ giúp các đội tạo module giống như phiên bản sẽ có trong sự kiện.
-Tài liệu này sẽ được cập nhật liên tục, các đội thi cần chú ý thông báo từ BTC khi tài liệu này có phiên bản mới hơn.
 BTC khuyến khích các đội làm tuần tự các bước trong #Thiết lập lần đầu, sau đó các hướng dẫn điều chỉnh và các lưu ý đi kèm sẽ có ở các phần sau.
 
 # Yêu cầu
 *   **Raspberry Pi Zero 2W**
-*    ![Pi 2W](../assets/pi2w.png)
+    ![Pi 2W](../assets/pi2w.png)
 *   **Raspberry Pi Camera Module V2**
-*    ![Pi Camera](../assets/pi_cam.png)
+    ![Pi Camera](../assets/pi_cam.png)
 *   **Thẻ nhớ microSD**: Ưu tiên sử dụng thẻ nhớ Sandisk Ultra SDHC (class 10) với dung lượng tối thiểu là 16GB.
-*    ![SD Card](../assets/sd_card.png)
+    ![SD Card](../assets/sd_card.png)
 *   **Cáp chuyển camera Raspberry Pi Zero**
-*    ![Cap Camera](../assets/cap-mini-csi-pi-zero.png)
+    ![Cap Camera](../assets/cap-mini-csi-pi-zero.png)
 *   **Pin 18650**
-*   ![Pin](../assets/pin.png)
+   ![Pin](../assets/pin.png)
 *   **Mạch hạ áp LM2596**: Khuyến nghị sử dụng mạch có màn hình hiển thị điện áp cho dễ sử dụng.
-* ![Mach Ha ap](../assets/ha_ap.png)
+    ![Mach Ha ap](../assets/ha_ap.png)
 *   **Cáp microUSB**: Yêu cầu cáp microUSB có khả năng truyền dữ liệu.
-*    ![microUSB](../assets/cap.png)
+    ![microUSB](../assets/cap.png)
 *   **Máy tính**: Một máy tính chạy Windows, macOS, hoặc Linux để tải Raspberry Pi Imager, ghi hệ điều hành lên thẻ nhớ để sử dụng cho Raspberry Pi và sử dụng để theo dõi hình ảnh camera. Để đạt hiệu quả tốt nhất, khuyến nghị sử dụng máy tính có cổng Ethernet.
 *   **Router không dây**: Bạn có thể sử dụng router nhà bạn đang sử dụng. Tuy nhiên để đạt hiệu năng tốt nhất chúng tôi khuyến nghị bạn sử dụng router không dây chuyên biệt sử dụng chuẩn N trở lên hay còn gọi là WiFi 4 trở lên (các router từ năm 2015 trở đi đều đáp ứng chuẩn này).
 * **[Hộp chứa camera](https://husteduvn-my.sharepoint.com/:u:/r/personal/huy_nq2417439_sis_hust_edu_vn/Documents/STEAM%20for%20Vietnam/CAD/FireBot/Camera%20Box/Ver%201/Ver%201.STEP?csf=1&web=1&e=k1KMQh)**: Hộp này sẽ chứa các linh kiện cần thiết để có thể dễ dàng gắn camera.
@@ -312,7 +311,7 @@ Bạn cần chuẩn bị sẵn mạch hạ áp LM2596, chúng tôi khuyến cáo
 Bạn cũng sẽ cần chuẩn bị 2 viên pin 18650, hộp chứa pin, một vài dây cắm test board (đực - cái).
 
 :::info
-Bạn có thể sử dụng các loại pin khác hoặc nhiều hơn 2 viên pin 18650, tuy nhiên module camera này không sử dụng nhiều điện năng để sử dụng nhiều hơn.
+Bạn có thể sử dụng các loại pin khác hoặc nhiều hơn 2 viên pin 18650, module camera này không sử dụng nhiều điện năng để sử dụng nhiều hơn 2 viên.
 :::
 
 ![image](../assets/setup_2.png)
@@ -321,7 +320,8 @@ Trên hộp chứa pin sẽ có hai dây màu đỏ và đen, tương đương v
 
 Sau đó tiến hành gắn pin vào hộp đựng pin, lưu ý cắm đúng chiều và đảm bảo đầu tiếp xúc của pin tiếp xúc vào 2 cực kim loại của hộp.
 :::warning
-Đảm bảo pin đã được sạc đầy, sụt áp có thể làm ảnh hưởng đến khả năng vận hành của mạch và có thể làm hỏng mạch.
+
+Đảm bảo pin cấp đủ điện áp (lớn hơn 7V), sụt áp có thể làm ảnh hưởng đến khả năng vận hành của mạch và có thể làm hỏng mạch.
 :::
 
 Mạch sẽ có đèn báo nguồn, nếu như mạch có màn hình hiển thị, bạn sẽ thấy màn hình LED sẽ hiện số và đèn sáng biểu thị điện áp vào và ra (biểu thị màu nâu trên hình minh hoạ).
@@ -340,6 +340,14 @@ Sau khi điều chỉnh điện áp ra, sử dụng dây cắm test board, tiế
 :::danger
 Bước này yêu cầu sử dụng thiết bị hàn/khò. Phải đeo đồ bảo hộ cần thiết khi thực hiện.
 Nếu bạn không có chuyên môn, hãy nhờ sự trợ giúp của người có chuyên môn thực hiện.
+:::
+
+:::danger
+
+Nếu các bạn không thể tự thực hiện hay nhờ sự trợ giúp của những người có chuyên môn, các bạn có thể sử dụng pin dự phòng sử dụng cho điện thoại,... và sử dụng cổng microUSB PWR IN trên mạch để cấp nguồn.
+
+Chú ý tại sự kiện sẽ sử dụng module của BTC và sẽ sử dụng pin 18650 để cấp nguồn.
+
 :::
 
 Xem sơ đồ chân giao tiếp GPIO (biểu thị màu đen) như ảnh dưới đây:
@@ -364,10 +372,13 @@ Bạn cần chuẩn bị hộp chứa camera và sử dụng cọc đồng cỡ 
 
 ![image](../assets/setup_4.png)
 
-Trong hình mạch hạ áp có chứa 4 cọc đồng, tuy nhiên nếu bạn gặp khó khăn trong việc cố định, bạn sẽ chỉ cần 2 cọc đồng cố định ở phía trên.
+Nếu không có cọc đồng, hoặc bạn gặp khó khăn trong việc cố định các mạch, bạn có thể dùng băng dính hai mặt để cố định mạch với hộp đựng.
+
 
 :::info
-Nếu bạn không có sẵn cọc đồng, bạn có thể sử dụng băng keo 2 mặt để cố định. Đảm bảo bạn đã cố định chắc chắn.
+
+Trong hình mạch hạ áp có chứa 4 cọc đồng, tuy nhiên nếu bạn gặp khó khăn trong việc cố định, bạn sẽ chỉ cần 2 cọc đồng cố định ở phía trên. Điều này không gây ảnh hưởng đến khả năng cố định của mạch.
+
 :::
 
 # Cách kết nối sang Router Wi-Fi khác bằng Serial.
@@ -380,6 +391,7 @@ Thực hiện các bước trong #Bước 5: Kết nối và sử dụng USB Ser
 
 Bạn sẽ được đưa về trình nhập lệnh, hãy nhập lệnh sau:
 
+````markdown
 ```bash
 sudo nmtui
 ```
@@ -407,15 +419,32 @@ Nếu bạn sử dụng Serial, bạn có thể sử dụng `nmtui` để kiểm
 Nếu bạn không sử dụng Serial, bạn sẽ cần phải kết nối thử vào mạng đó, và truy cập vào trang quản lí của router Wi-Fi của bạn (bạn có thể kiểm tra bằng cách tìm địa chỉ Gateway mạng của mạng) hoặc sử dụng các app dò tìm các thiết bị cùng mạng như Fing để kiểm tra xem Raspberry Pi đang kết nối với mạng mà thiết bị của bạn đang tham gia hay không.
 
 # FAQ
-1. Mạch Raspberry Pi không lên nguồn.
-Kiểm tra pin, nhất là đầu tiếp xúc của pin với mặt kim loại trong hộp pin. 
+
+**Q:** Mạch Raspberry Pi không lên nguồn.
+**A:** Kiểm tra pin, nhất là đầu tiếp xúc của pin với mặt kim loại trong hộp pin. 
 Nếu đầu tiếp xúc pin đã chắc chắn, kiểm tra mạch hạ áp có được cấp nguồn hay không.
-2. Truy cập vào trang web không thấy truy cập được ngay cả khi đã kết nối với Wi-Fi.
-Ngắt pin và sau đó cắm lại pin và chờ 30 giây - 1 phút, nếu vẫn diễn ra, thử kiểm tra Raspberry Pi đang kết nối với mạng nào.
-3. Camera đang vận hành thì có hiện tượng lag, đứng hình.
-Nếu bị lag-đứng hình khoảng 5-10s thì lại có lại tín hiệu: Mạch bị nóng hoặc wifi không ổn định.
+
+**Q:** Truy cập vào trang web không thấy truy cập được ngay cả khi đã kết nối với Wi-Fi.
+**A:** Ngắt pin và sau đó cắm lại pin và chờ 30 giây - 1 phút, nếu vẫn diễn ra, thử kiểm tra Raspberry Pi đang kết nối với mạng nào.
+
+**Q:** Camera đang vận hành thì có hiện tượng lag, đứng hình.
+**A:** Nếu bị lag-đứng hình khoảng 5-10s thì lại có lại tín hiệu: Mạch bị nóng hoặc wifi không ổn định.
+:::info
 Chúng tôi đề xuất sử dụng Wi-Fi riêng biệt cho camera, do truyền tải tín hiệu sẽ cố gắng sử dụng hết bằng thông mà router Wi-Fi của bạn có thể cung cấp. 
+:::
+:::info
 Chúng tôi cũng khuyến nghị bạn sử dụng dây LAN để nối giữa router Wi-Fi đến thiết bị của bạn để giảm lượng truyền tải cho camera.
+:::
+:::info
 Bạn có thể sẽ cần điều chỉnh kênh trên router Wi-Fi để tránh chung kênh với các điểm Wi-Fi khác gần khu vực bạn trong trường hợp xung quanh môi trường bạn có nhiều Wi-Fi khác.
-4. Truy cập được vào trang web, nhưng bấm Play sau >15s không có tín hiệu.
-Trên màn hình trang web camera, bấm F12 hoặc chuột phải bất kỳ vào trang web và chọn Inspect -> Console và quan sát dòng nếu có 502 Bad Gateway có nghĩa là đầu tiếp xúc giữa cam và mạch có vấn đề, bạn sẽ cần tháo hộp chứa camera và kiểm tra.
+:::
+
+**Q:** Truy cập được vào trang web, nhưng bấm Play sau >15s không có tín hiệu.
+**A:** Trên màn hình trang web camera, bấm F12 hoặc chuột phải bất kỳ vào trang web và chọn Inspect -> Console và quan sát dòng nếu có 502 Bad Gateway có nghĩa là đầu tiếp xúc giữa cam và mạch có vấn đề, bạn sẽ cần tháo hộp chứa camera và kiểm tra.
+
+**Q:** Tôi có được sử dụng camera khác không.
+**A:** Bạn có thể sử dụng các camera khác, miễn đảm bảo chúng sử dụng cổng CSI. Sử dụng USB Camera sẽ yêu cầu bạn thay đổi một vài file cấu hình. Liên hệ BTC để được cung cấp thêm thông tin.
+
+:::info
+Trong sự kiện, bạn sẽ phải sử dụng module camera của BTC.
+:::

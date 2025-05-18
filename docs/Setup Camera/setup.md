@@ -65,8 +65,9 @@ Raspberry Pi Imager là công cụ chính thức và được khuyến nghị đ
 
 *   Truy cập trang web chính thức của Raspberry Pi: [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/)
 *   Tải xuống phiên bản Raspberry Pi Imager phù hợp với hệ điều hành máy tính của bạn (Windows, macOS, hoặc Ubuntu).
+- ![Pi web](../assets/SetupCam/b1.png)
 *   Cài đặt Raspberry Pi Imager theo hướng dẫn trên màn hình.
-
+- ![Install Pi](../assets/SetupCam/b3-1.png)
 **Bước 2: Chuẩn bị thẻ nhớ**
 
 *   Cắm thẻ nhớ MicroSD vào máy tính của bạn thông qua đầu đọc thẻ nhớ hoặc khe cắm thẻ nhớ tích hợp.
@@ -81,16 +82,22 @@ Raspberry Pi Imager là công cụ chính thức và được khuyến nghị đ
 
 1.  Mở ứng dụng Raspberry Pi Imager.
 2.  Nhấp vào nút **"CHOOSE DEVICE"** và chọn model Raspberry Pi của bạn. Trong trường hợp này, hãy chọn **"Raspberry Pi Zero 2 W"**.
+- ![Pi web](../assets/SetupCam/b3-2.png)
 3.  Nhấp vào nút **"CHOOSE OS"**. Một danh sách các hệ điều hành sẽ hiện ra. Di chuyển đến mục **"Raspberry Pi OS (other)"** và chọn **"Raspberry Pi OS Lite (64-bit)"**. Phiên bản Lite không có giao diện đồ họa, giúp tiết kiệm tài nguyên và phù hợp cho các ứng dụng máy chủ hoặc thiết bị nhúng như camera.
+- ![Pi web](../assets/SetupCam/b3-3.png)
 4.  Nhấp vào nút **"CHOOSE STORAGE"** và chọn thẻ nhớ MicroSD bạn đã cắm vào máy tính.
+- ![Pi web](../assets/SetupCam/b3-4.png)
 5.  Sau khi đã chọn thiết bị, hệ điều hành và bộ nhớ lưu trữ, nút **"NEXT"** sẽ xuất hiện. Nhấp vào nút này để tiếp tục.
+- ![Pi web](../assets/SetupCam/b3-6.png)
 
 ### 1.3. Hướng dẫn tùy chỉnh các thông số quan trọng trong Raspberry Pi Imager
 
 Trước khi bắt đầu quá trình ghi, Raspberry Pi Imager sẽ hỏi bạn có muốn tùy chỉnh hệ điều hành không ("Would you like to apply OS customisation?"). Nhấp vào **"EDIT SETTINGS"** để cấu hình các thông số quan trọng sau. Việc này rất hữu ích vì nó cho phép bạn thiết lập các thông tin cần thiết để Raspberry Pi có thể tự động kết nối mạng và cho phép truy cập SSH ngay sau khi khởi động lần đầu.
 
-1.  **Set hostname**: Đặt tên cho Raspberry Pi của bạn. Tên này sẽ được sử dụng để truy cập thiết bị trong mạng nội bộ. Nên chọn một tên duy nhất và dễ nhớ, ví dụ: `s4v-cam1`. Đánh dấu vào ô "Set hostname" và nhập tên mong muốn. Tên miền `.local` sẽ tự động được thêm vào (ví dụ: `s4v-cam1.local`).
+- ![Pi web](../assets/SetupCam/1-3.png)
 
+1.  **Set hostname**: Đặt tên cho Raspberry Pi của bạn. Tên này sẽ được sử dụng để truy cập thiết bị trong mạng nội bộ. Nên chọn một tên duy nhất và dễ nhớ, ví dụ: `s4v-cam1`. Đánh dấu vào ô "Set hostname" và nhập tên mong muốn. Tên miền `.local` sẽ tự động được thêm vào (ví dụ: `s4v-cam1.local`).
+   
 2.  **Set username and password**: Tạo một tài khoản người dùng và mật khẩu để đăng nhập vào Raspberry Pi.
 
 
@@ -117,13 +124,15 @@ Ghi nhớ kỹ thông tin tài khoản (tên người dùng và mật khẩu) b�
         :::
         Đảm bảo rằng tùy chọn **"Enable SSH"** được chọn.
     *   Chọn **"Use password authentication"**.
+- ![Pi web](../assets/SetupCam/1-4.png)
 
 6.  Sau khi đã hoàn tất các tùy chỉnh, nhấp vào nút **"SAVE"**.
 
+- ![Pi web](../assets/SetupCam/b3-7.png)
 7.  Bây giờ, Raspberry Pi Imager sẽ hiển thị một cảnh báo rằng tất cả dữ liệu trên thẻ nhớ sẽ bị xóa. Nhấp vào **"YES"** để xác nhận và bắt đầu quá trình ghi hệ điều hành.
 
 8.  Chờ cho đến khi Raspberry Pi Imager hoàn tất quá trình ghi và xác minh dữ liệu. Quá trình này có thể mất vài phút tùy thuộc vào tốc độ của thẻ nhớ và máy tính của bạn.
-
+- ![Pi web](../assets/SetupCam/1-7.png)
 9.  Sau khi hoàn tất, bạn sẽ nhận được thông báo. Nhấp vào **"CONTINUE"** và sau đó bạn có thể rút thẻ nhớ ra khỏi máy tính một cách an toàn.
 
 Tham khảo thêm thông tin và hình ảnh minh họa tại: [https://raspberrypi.vn/huong-dan-cai-dieu-hanh-cho-raspberry-pi-2457.pi](https://raspberrypi.vn/huong-dan-cai-dieu-hanh-cho-raspberry-pi-2457.pi) 
@@ -186,7 +195,14 @@ sudo shutdown now
         Bạn sẽ thấy một thiết bị mới như `/dev/ttyUSB0` hoặc `/dev/ttyACM0` hoặc `/dev/ttyGS0`.
     *   **Trên Windows:** Mở **Device Manager**. Trong mục "Ports (COM & LPT)", bạn sẽ thấy một cổng COM mới xuất hiện (ví dụ: "USB Serial Device (COM3)"). Ghi nhớ số hiệu cổng COM này.
 
-3.  **Kết nối bằng phần mềm Terminal:**
+:::info
+Nếu bạn sử dung máy tính để bàn PC chạy Windows, bạn nên cắm vào cổng USB ở phía sau máy tính (trên bo mạch chủ) để đảm bảo máy có thể nhận cổng COM
+- ![image](../assets/SetupCam/device.png)
+- Chọn This PC -> Manage -> Device Manager -> Chọn Others Device
+Chuột phải -> Update driver -> Browse my computer -> Let me pick -> Ports COM/LPT -> Tìm Microsoft -> Bên phải sẽ hiện "USB Serial Device"
+:::
+
+1.  **Kết nối bằng phần mềm Terminal:**
     *   **macOS/Linux (sử dụng `screen`):** Mở Terminal và sử dụng lệnh `screen` với tốc độ baud là 115200. Thay `/dev/cu.usbmodemXXXX` (macOS) hoặc `/dev/ttyGS0` (Linux) bằng tên cổng serial bạn tìm thấy ở bước trên:
         ```bash
         # Ví dụ cho macOS
@@ -202,6 +218,7 @@ sudo shutdown now
         3.  Trong ô "Serial line", nhập tên cổng COM bạn tìm thấy (ví dụ: `COM3`).
         4.  Trong ô "Speed", nhập `115200`.
         5.  Nhấp "Open".
+            ![putty](../assets/SetupCam/putty.png)
 
 Sau khi kết nối thành công, nhấn `Enter` một vài lần. Bạn sẽ thấy lời nhắc đăng nhập của Raspberry Pi. Đăng nhập bằng tên người dùng và mật khẩu bạn đã tạo. Giờ đây bạn đã có thể điều khiển Raspberry Pi mà không cần kết nối mạng.
 

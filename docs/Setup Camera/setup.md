@@ -18,7 +18,7 @@ BTC khuyến khích các đội làm tuần tự các bước trong #Thiết l�
 *   **Cáp chuyển camera Raspberry Pi Zero**
 -    ![Cap Camera](../assets/cap-mini-csi-pi-zero.png)
 *   **Pin 18650**
--   ![Pin](../assets/pin.png)
+-   ![Pin](../assets/SetupCam/pin.jpg)
 *   **Mạch hạ áp LM2596**: Khuyến nghị sử dụng mạch có màn hình hiển thị điện áp cho dễ sử dụng.
 -    ![Mach Ha ap](../assets/ha_ap.png)
 *   **Cáp microUSB**: Yêu cầu cáp microUSB có khả năng truyền dữ liệu.

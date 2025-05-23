@@ -184,6 +184,7 @@ sudo shutdown now
         ls /dev/cu.usbmodem*
         ```
         Bạn sẽ thấy một thiết bị mới xuất hiện, ví dụ: `/dev/cu.usbmodem12345` hoặc tương tự. Đây chính là cổng serial của Raspberry Pi.
+        - ![image](../assets/SetupCam/screen.png)
     *   **Trên Linux:** Mở Terminal và chạy lệnh:
         ```bash
         ls /dev/ttyUSB* /dev/ttyACM*
@@ -200,6 +201,13 @@ Nếu bạn sử dung máy tính để bàn PC chạy Windows, bạn nên cắm 
 - ![image](../assets/SetupCam/device.png)
 - Chọn This PC -> Manage -> Device Manager -> Chọn Others Device
 Chuột phải -> Update driver -> Browse my computer -> Let me pick -> Ports COM/LPT -> Tìm Microsoft -> Bên phải sẽ hiện "USB Serial Device"
+- ![image](../assets/SetupCam/update.png)
+- ![image](../assets/SetupCam/browse.png)
+- ![image](../assets/SetupCam/pick.png)
+- ![image](../assets/SetupCam/com.png)
+- ![image](../assets/SetupCam/usb.png)
+- ![image](../assets/SetupCam/result.png)
+
 :::
 
 1.  **Kết nối bằng phần mềm Terminal:**
@@ -221,6 +229,14 @@ Chuột phải -> Update driver -> Browse my computer -> Let me pick -> Ports CO
             ![putty](../assets/SetupCam/putty.png)
 
 Sau khi kết nối thành công, nhấn `Enter` một vài lần. Bạn sẽ thấy lời nhắc đăng nhập của Raspberry Pi. Đăng nhập bằng tên người dùng và mật khẩu bạn đã tạo. Giờ đây bạn đã có thể điều khiển Raspberry Pi mà không cần kết nối mạng.
+
+:::info
+Nếu bạn gặp lỗi "Remote host identification has changed" hãy chạy lệnh 
+```bash
+ssh-keygen -R s4v-cam1.local
+```
+- ![image](../assets/SetupCam/ssh-keygen.png)
+:::
 
 :::info
 Khi nhập mật khẩu, sẽ không có biểu thị nào hiện lên báo cho bạn biết mật khẩu đã được nhập. Đây là hành vi bình thường và bạn chỉ cần tiếp nhập và nhấn phím Enter/Return để đăng nhập.

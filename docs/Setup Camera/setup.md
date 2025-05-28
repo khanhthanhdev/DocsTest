@@ -164,15 +164,30 @@ Sau khi đã chuẩn bị thẻ nhớ với hệ điều hành được cài đ�
     *   Lần đầu kết nối, bạn có thể nhận được một cảnh báo về tính xác thực của máy chủ (authenticity of host). Gõ `yes` và nhấn Enter để tiếp tục.
     *   Nhập mật khẩu bạn đã tạo cho người dùng khi được yêu cầu. Sau khi nhập đúng mật khẩu, bạn sẽ đăng nhập thành công vào dòng lệnh của Raspberry Pi OS.
 
-**Bước 4: Tắt Raspberry Pi**
+4. **Cài đặt git và chạy script all in one:**
+   * Cài đặt Git bằng lệnh sau:
+        ```bash
+        sudo apt update && sudo apt install git
+        ```
+    * Sau đó tải xuống script cài đặt:
+        ```bash
+        git clone https://github.com/khanhthanhdev/nrc-camera-deploypackage.git
+        ```
+    * Sau đó cấp quyền thực thi cho file cài đặt:
+        ```bash
+        chmod +x ./nrc-camera-deploypackage/setup.sh
+        ```    
+    * Sau đó chạy file cài đặt:
+        ```bash
+        sudo ./nrc-camera-deploypackage/setup.sh
+        ```    
+    * Khi cài xong, sẽ có yêu cầu bạn restart mạch thì hãy kết nối lại sau 1 phút
+:::info
+Trong quá trình cài đặt, script sẽ có các câu hỏi yes/no khi cài, bạn chỉ cần nhập **yes**.
+Quá trình cài đặt sẽ mất từ 15 đến 30 phút tùy điều kiện mạng
+:::
 
-Sau khi hoàn tất các thay đổi cấu hình, hãy tắt Raspberry Pi một cách an toàn:
 
-```bash
-sudo shutdown now
-```
-
-Đợi cho đến khi đèn LED ACT ngừng nhấp nháy hoàn toàn, báo hiệu Raspberry Pi đã tắt hẳn. Sau đó, rút nguồn khỏi cổng "PWR IN".
 
 **Bước 5: Kết nối và sử dụng USB Serial Gadget**
 
@@ -196,21 +211,21 @@ sudo shutdown now
         Bạn sẽ thấy một thiết bị mới như `/dev/ttyUSB0` hoặc `/dev/ttyACM0` hoặc `/dev/ttyGS0`.
     *   **Trên Windows:** Mở **Device Manager**. Trong mục "Ports (COM & LPT)", bạn sẽ thấy một cổng COM mới xuất hiện (ví dụ: "USB Serial Device (COM3)"). Ghi nhớ số hiệu cổng COM này.
 
-:::info
-Nếu bạn sử dung máy tính để bàn PC chạy Windows, bạn nên cắm vào cổng USB ở phía sau máy tính (trên bo mạch chủ) để đảm bảo máy có thể nhận cổng COM
-- ![image](../assets/SetupCam/device.png)
-- Chọn This PC -> Manage -> Device Manager -> Chọn Others Device
-Chuột phải -> Update driver -> Browse my computer -> Let me pick -> Ports COM/LPT -> Tìm Microsoft -> Bên phải sẽ hiện "USB Serial Device"
-- ![image](../assets/SetupCam/update.png)
-- ![image](../assets/SetupCam/browse.png)
-- ![image](../assets/SetupCam/pick.png)
-- ![image](../assets/SetupCam/com.png)
-- ![image](../assets/SetupCam/usb.png)
-- ![image](../assets/SetupCam/result.png)
+        :::info
+        Nếu bạn sử dung máy tính để bàn PC chạy Windows, bạn nên cắm vào cổng USB ở phía sau máy tính (trên bo mạch chủ) để đảm bảo máy có thể nhận cổng COM
+        - ![image](../assets/SetupCam/device.png)
+        - Chọn This PC -> Manage -> Device Manager -> Chọn Others Device
+        Chuột phải -> Update driver -> Browse my computer -> Let me pick -> Ports COM/LPT -> Tìm Microsoft -> Bên phải sẽ hiện "USB Serial Device"
+        - ![image](../assets/SetupCam/update.png)
+        - ![image](../assets/SetupCam/browse.png)
+        - ![image](../assets/SetupCam/pick.png)
+        - ![image](../assets/SetupCam/com.png)
+        - ![image](../assets/SetupCam/usb.png)
+        - ![image](../assets/SetupCam/result.png)
+        :::
 
-:::
 
-1.  **Kết nối bằng phần mềm Terminal:**
+3.  **Kết nối bằng phần mềm Terminal:**
     *   **macOS/Linux (sử dụng `screen`):** Mở Terminal và sử dụng lệnh `screen` với tốc độ baud là 115200. Thay `/dev/cu.usbmodemXXXX` (macOS) hoặc `/dev/ttyGS0` (Linux) bằng tên cổng serial bạn tìm thấy ở bước trên:
         ```bash
         # Ví dụ cho macOS
@@ -242,61 +257,15 @@ ssh-keygen -R s4v-cam1.local
 Khi nhập mật khẩu, sẽ không có biểu thị nào hiện lên báo cho bạn biết mật khẩu đã được nhập. Đây là hành vi bình thường và bạn chỉ cần tiếp nhập và nhấn phím Enter/Return để đăng nhập.
 :::
 
-## Phần 3: Cài đặt RPi-WebRTC với Script Tối ưu
-
-Phần này hướng dẫn bạn cách cài đặt RPi-WebRTC bằng Script sẽ tự động hóa phần lớn quá trình cài đặt.
-
-### 3.1. Chuẩn bị Script và Các File Cấu hình
-
-Trước tiên, bạn cần đảm bảo có các file sau trên Raspberry Pi, tất cả nằm **trong cùng một thư mục**:
-
-1.  **`setup_optimized.sh`**: Script cài đặt chính.
-2.  **`nginx.conf`**: File cấu hình cho Nginx. 
-3.  **`s4v-camera.service`**: File dịch vụ systemd cho camera
-
-Bạn có thể tải các file này về Raspberry Pi hoặc tạo chúng trong một thư mục, ví dụ `~/camera_setup`.
-
-```bash
-mkdir ~/camera_setup
-cd ~/camera_setup
-# Tại đây, hãy đảm bảo bạn có 3 file: setup_optimized.sh, nginx.conf, s4v-camera.service
-```
-
-:::info QUAN TRỌNG
-Việc đặt tất cả các file này vào cùng một thư mục là rất quan trọng, vì script `setup_optimized.sh` được thiết kế để tìm các file cấu hình (`nginx.conf`, `s4v-camera.service`) trong thư mục mà nó được thực thi.
-:::
-
-### 3.2. Chạy Script Cài đặt
-
-Sau khi đã chuẩn bị đủ các file trong cùng một thư mục, bạn có thể tiến hành chạy script.
-
-1.  **Cấp quyền chạy cho script:**
-    Mở terminal trên Raspberry Pi (qua SSH hoặc kết nối Serial), di chuyển đến thư mục chứa các file và chạy lệnh sau:
-    ```bash
-    chmod +x ./setup_optimized.sh
-    ```
-
-2.  **Chạy script với quyền root:**
-    ```bash
-    sudo ./setup_optimized.sh
-    ```
-
-:::caution Lưu ý
-**Thời gian:** Quá trình cài đặt có thể mất từ 15-30 phút hoặc lâu hơn, tùy thuộc vào tốc độ mạng và Raspberry Pi. 
-:::
-
-Script sẽ tự động tải xuống các gói cần thiết, cài đặt RPi-WebRTC, cấu hình Nginx, tạo SSL certificate, và thiết lập camera để tự khởi động cùng hệ thống.
-
-Sau khi script hoàn tất, bạn có thể chuyển sang phần tiếp theo để kiểm tra và sử dụng camera.
 
 
-## Phần 4: Kiểm tra và Sử dụng Camera
+## Phần 3: Kiểm tra và Sử dụng Camera
 
-Sau khi script `setup_optimized.sh` đã chạy hoàn tất, hệ thống camera của bạn về cơ bản đã sẵn sàng hoạt động. 
+Sau khi script `setup.sh` đã chạy hoàn tất, hệ thống camera của bạn về cơ bản đã sẵn sàng hoạt động. 
 
-### 4.1. Kiểm tra các cài đặt
+### 3.1. Kiểm tra các cài đặt
 
-Script `setup_optimized.sh` sẽ cố gắng khởi động các dịch vụ cần thiết. Bạn có thể kiểm tra lại:
+Script `setup.sh` sẽ cố gắng khởi động các dịch vụ cần thiết. Bạn có thể kiểm tra lại:
 
 1.  **Kiểm tra dịch vụ camera (s4v-camera):**
     ```bash
@@ -314,7 +283,7 @@ Script `setup_optimized.sh` sẽ cố gắng khởi động các dịch vụ c�
     Nếu một trong các dịch vụ không chạy (`inactive (dead)` hoặc `failed`), script `setup_optimized.sh` thường sẽ đưa ra cảnh báo ở cuối quá trình chạy. Bạn có thể xem log chi tiết hơn bằng lệnh `journalctl -u s4v-camera.service` (thay `s4v-camera.service` bằng `nginx.service` nếu cần) để tìm nguyên nhân.
     :::
 
-### 4.2. Truy cập Giao diện Camera Web
+### 3.2. Truy cập Giao diện Camera Web
 
 Nếu các dịch vụ đã chạy thành công, bạn có thể truy cập giao diện WebRTC của camera từ một máy tính khác trong cùng mạng Wi-Fi:
 
@@ -324,18 +293,13 @@ Nếu các dịch vụ đã chạy thành công, bạn có thể truy cập giao
 
     :::danger CẢNH BÁO BẢO MẬT SSL
     Vì chúng ta sử dụng SSL certificate tự ký (self-signed certificate) được tạo bởi script, trình duyệt của bạn sẽ hiển thị cảnh báo bảo mật về kết nối không đáng tin cậy. Điều này là bình thường trong trường hợp này.
-    Bạn cần chấp nhận rủi ro và tiếp tục truy cập (thường có tùy chọn như "Advanced" -> "Proceed to [hostname].local (unsafe)").
+    Bạn chọn "Advanced" -> "Proceed to [hostname].local (unsafe)".
     :::
 
 3.  Sau khi chấp nhận cảnh báo, bạn sẽ thấy giao diện WebRTC và hình ảnh từ camera của Raspberry Pi.
 
-## Phần 5: Kiểm tra hoạt động của camera
 
-
-**Kiểm tra hoạt động của camera:** Mở trình duyệt web trên một máy tính trong cùng mạng và truy cập vào địa chỉ `https://<hostname_cua_ban>.local` (ví dụ: `https://s4v-cam1.local`). Bạn có thể cần chấp nhận cảnh báo bảo mật do sử dụng SSL certificate tự ký.
-
-
-## Phần 6: Sử dụng mạch hạ áp với pin 18650 để cấp nguồn di động cho mạch.
+## Phần 4: Sử dụng mạch hạ áp với pin 18650 để cấp nguồn di động cho mạch.
 
 Bạn cần chuẩn bị sẵn mạch hạ áp LM2596, chúng tôi khuyến cáo bạn sử dụng mạch có màn hình hiển thị điện áp như hình dưới đây.
 
@@ -368,7 +332,7 @@ Không được điều chỉnh điện áp ra vượt quá 5.1 khi cắm nguồ
 
 Sau khi điều chỉnh điện áp ra, sử dụng dây cắm test board, tiếp tục gắn hai dây cắm vào đầu OUT- và OUT+ tương ứng với cực âm và cực dương. Khuyến cáo sử dụng dây có màu đen/tối màu cho cực âm và dây đỏ/sáng màu cho cực dương.
 
-## Phần 7: Hàn chân header cần thiết cho mạch Raspberry Pi.
+## Phần 5: Hàn chân header cần thiết cho mạch Raspberry Pi.
 
 :::danger
 Bước này yêu cầu sử dụng thiết bị hàn/khò. Phải đeo đồ bảo hộ cần thiết khi thực hiện.
@@ -399,7 +363,7 @@ Kiểm tra kỹ mạch hạ áp xem điện áp ra có đúng yêu cầu chưa (
 Kiểm tra kỹ chân header vừa hàn xem có chập với các chân khác hay không, để gây chạm hoặc chập có thể làm cháy mạch do chân GPIO không có kết nối với các thành phần bảo vệ mạch.
 :::
 
-## Phần 8: Gắn các linh kiện hoàn chỉnh vào hộp chứa camera.
+## Phần 6: Gắn các linh kiện hoàn chỉnh vào hộp chứa camera.
 
 Bạn cần chuẩn bị hộp chứa camera và sử dụng cọc đồng cỡ M3 để gắn các thiết bị như hình sau:
 
